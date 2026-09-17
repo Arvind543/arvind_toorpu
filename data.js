@@ -12,7 +12,7 @@ const PORTFOLIO_DATA = {
     website: "https://arvindtoorpu.com",
     email: "arvindtoorpu.dba@gmail.com",
     linkedin: "https://www.linkedin.com/in/arvind-toorpu",
-    github: "https://github.com/arvindtoorpu",
+    github: "https://github.com/Arvind543",
     oracleAce: "https://ace.oracle.com/ords/f?p=700000:2:::::ACE_ID:2658",
     awsBuilder: "https://builder.aws.com/community/@arvindtoorpu?tab=articles",
     medium: "https://medium.com/@arvindtoorpu",
