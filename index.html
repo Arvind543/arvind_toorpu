@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arvind Toorpu | Cloud Ops Database Manager, Oracle ACE Pro &amp; Principal Architect</title>
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#070b12',
+              card: '#0e1626',
+              border: '#1e293b',
+              emerald: '#10b981',
+              cyan: '#06b6d4',
+              indigo: '#6366f1',
+              amber: '#f59e0b'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-[#070b12] text-slate-100 min-h-screen bg-grid-pattern selection:bg-emerald-500 selection:text-slate-950">
+
+  <!-- Top Sticky Navigation Bar -->
+  <nav class="sticky top-0 z-40 bg-[#070b12]/90 backdrop-blur-md border-b border-slate-800/80 px-4 lg:px-8 py-3.5 transition-all">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#overview" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 group-hover:scale-105 transition-transform">
+          <i data-lucide="database" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <div class="font-extrabold text-white tracking-wide text-sm font-mono flex items-center gap-2">
+            <span class="hero-name">Arvind Toorpu</span>
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block"></span>
+          </div>
+          <div class="text-[11px] text-amber-400/90 tracking-wider uppercase font-mono font-semibold">Oracle ACE Pro • Cloud Ops Manager</div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center space-x-6 text-xs font-semibold text-slate-300">
+        <a href="#overview" class="nav-link hover:text-emerald-400 transition-colors">Overview</a>
+        <a href="#honors" class="nav-link hover:text-amber-400 transition-colors flex items-center gap-1">
+          <i data-lucide="award" class="w-3.5 h-3.5 text-amber-400"></i>
+          Honors
+        </a>
+        <a href="#specializations" class="nav-link hover:text-emerald-400 transition-colors">Pillars</a>
+        <a href="#migration-advisor" class="nav-link hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-cyan-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          Migration Advisor
+        </a>
+        <a href="#case-studies" class="nav-link hover:text-emerald-400 transition-colors">Case Studies</a>
+        <a href="#publications" class="nav-link hover:text-cyan-400 transition-colors">Publications</a>
+        <a href="#skills" class="nav-link hover:text-emerald-400 transition-colors">Skills</a>
+        <a href="#experience" class="nav-link hover:text-emerald-400 transition-colors">Experience</a>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2.5">
+        <!-- DBA CLI Terminal Button -->
+        <button id="open-terminal-btn" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-emerald-500/40 hover:border-emerald-400 text-xs font-mono font-semibold text-emerald-400 flex items-center gap-2 transition-all">
+          <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">DBA Terminal</span>
+        </button>
+
+        <!-- Official Blog Link -->
+        <a href="https://arvindtoorpu.com" target="_blank" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-all">
+          <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">arvindtoorpu.com</span>
+        </a>
+
+        <!-- Resume PDF Button -->
+        <button class="btn-print-resume px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-white flex items-center gap-1.5 transition-all">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span class="hidden sm:inline">Resume PDF</span>
+        </button>
+
+        <!-- Contact CTA -->
+        <a href="#contact" class="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs shadow-md shadow-emerald-500/20 transition-all">
+          Connect
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="overview" class="pt-14 pb-16 px-4 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col items-center text-center">
+      
+      <!-- Live Honors Badges Pill -->
+      <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-amber-500/40 text-xs font-mono font-medium mb-6">
+        <a href="https://ace.oracle.com/ords/f?p=700000:2:::::ACE_ID:2658" target="_blank" class="flex items-center gap-1.5 text-amber-400 font-bold hover:underline">
+          <i data-lucide="award" class="w-4 h-4"></i>
+          Oracle ACE Pro (ACE ID: 2658)
+        </a>
+        <a href="https://builder.aws.com/community/@arvindtoorpu?tab=articles" target="_blank" class="flex items-center gap-1.5 text-cyan-400 font-semibold hover:underline">
+          <i data-lucide="cloud" class="w-4 h-4"></i>
+          AWS Community Builder
+        </a>
+        <span class="text-slate-600">|</span>
+        <span class="text-emerald-400 font-semibold">2024 Global Recognition Award Winner</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight max-w-4xl">
+        Cloud Ops Database Manager &amp;
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">
+          Principal Database Architect
+        </span>
+      </h1>
+
+      <!-- Subtitle / Current Role Context -->
+      <p id="hero-current-role" class="mt-4 text-base sm:text-lg text-emerald-400 font-mono font-semibold">
+        Cloud Ops Database Manager at Allspring Global Investments
+      </p>
+
+      <!-- Mission Statement -->
+      <p id="hero-tagline" class="mt-3 text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed">
+        Oracle ACE Pro • AWS Community Builder • 2024 Global Recognition Award Winner • 15+ Years Architecting Enterprise Database Systems &amp; Zero-Downtime Cloud Migrations
+      </p>
+
+      <!-- Engine Badges Bar -->
+      <div class="mt-6 flex flex-wrap justify-center gap-2 max-w-3xl">
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-amber-500/40 text-xs font-mono text-amber-300 font-bold">Oracle Cloud Architect</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-cyan-500/40 text-xs font-mono text-cyan-300 font-bold">AWS Cloud Architect Associate</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-indigo-500/40 text-xs font-mono text-indigo-300 font-bold">Azure Cloud Architect</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-emerald-500/40 text-xs font-mono text-emerald-300 font-bold">Oracle Database Admin Professional</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Oracle GoldenGate &amp; AWS DMS</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Certified Liquibase Practitioner</span>
+        <span class="px-3 py-1 rounded-md bg-slate-900 border border-slate-800 text-xs font-mono text-indigo-300">Oracle 23ai AI Vector Search</span>
+      </div>
+
+      <!-- Hero Call-To-Action Buttons -->
+      <div class="mt-8 flex flex-wrap justify-center gap-3 sm:gap-4">
+        <a href="#migration-advisor" class="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-sm flex items-center gap-2 shadow-lg shadow-emerald-500/25 transition-all">
+          <i data-lucide="calculator" class="w-4 h-4"></i>
+          <span>Launch Migration Advisor</span>
+        </a>
+        <a href="#case-studies" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-slate-500 text-white font-semibold text-sm flex items-center gap-2 transition-all">
+          <i data-lucide="layers" class="w-4 h-4"></i>
+          <span>Explore Enterprise Case Studies</span>
+        </a>
+        <a href="#publications" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-cyan-500/40 text-cyan-400 font-semibold text-sm flex items-center gap-2 transition-all">
+          <i data-lucide="book-open" class="w-4 h-4"></i>
+          <span>Read Research &amp; Articles</span>
+        </a>
+        <button onclick="openTerminalModal()" class="px-6 py-3 rounded-xl bg-slate-950 hover:bg-slate-900 border border-emerald-500/40 text-emerald-400 font-mono text-sm flex items-center gap-2 transition-all">
+          <i data-lucide="terminal" class="w-4 h-4"></i>
+          <span>Arvind CLI Console</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Executive Metrics Grid -->
+    <div class="mt-14">
+      <div class="text-center mb-6">
+        <span class="text-xs uppercase tracking-widest text-slate-400 font-mono font-bold">Quantified Operational Scale &amp; Production SLA</span>
+      </div>
+      <div id="metrics-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        <!-- Dynamically rendered from data.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Honors & Industry Awards Section -->
+  <section id="honors" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold mb-3">
+        <i data-lucide="award" class="w-3.5 h-3.5"></i>
+        <span>International Industry Recognitions</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Honors &amp; Distinguished Accreditations</h2>
+      <p class="text-slate-400 text-sm mt-3">Globally recognized by Oracle, AWS, international award committees, and enterprise peers for pioneering cloud database infrastructure transformations.</p>
+    </div>
+
+    <div id="honors-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Dynamically populated from data.js -->
+    </div>
+  </section>
+
+  <!-- Executive About Section -->
+  <section class="py-12 px-4 lg:px-8 max-w-7xl mx-auto">
+    <div class="glass-panel p-8 sm:p-10 rounded-2xl border border-slate-800">
+      <div class="flex flex-col lg:flex-row items-start gap-8">
+        <div class="lg:w-1/3">
+          <div class="text-xs font-mono font-bold uppercase tracking-wider text-emerald-400 mb-2">Executive Summary</div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white leading-tight">Mastering High-Stakes Enterprise Database Systems</h2>
+          <div class="mt-4 flex flex-col gap-2 text-xs text-slate-400 font-mono">
+            <span id="profile-location" class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i> Dallas, TX</span>
+            <a href="https://arvindtoorpu.com" target="_blank" class="profile-website text-cyan-400 hover:underline flex items-center gap-1.5">
+              <i data-lucide="globe" class="w-4 h-4"></i> arvindtoorpu.com
+            </a>
+            <a href="https://ace.oracle.com/ords/f?p=700000:2:::::ACE_ID:2658" target="_blank" class="text-amber-400 font-semibold flex items-center gap-1.5 hover:underline">
+              <i data-lucide="award" class="w-4 h-4"></i> Oracle ACE Pro (ACE ID: 2658)
+            </a>
+            <a href="https://builder.aws.com/community/@arvindtoorpu?tab=articles" target="_blank" class="text-cyan-400 font-semibold flex items-center gap-1.5 hover:underline">
+              <i data-lucide="cloud" class="w-4 h-4"></i> AWS Community Builder (@arvindtoorpu)
+            </a>
+          </div>
+        </div>
+        <div class="lg:w-2/3">
+          <p id="about-bio" class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            <!-- Populated from data.js -->
+          </p>
+          <div class="mt-6 flex flex-wrap gap-4 pt-6 border-t border-slate-800 text-xs font-mono">
+            <div>
+              <span class="text-slate-400 block">Core RDBMS Engines:</span>
+              <span class="text-white font-semibold">Oracle 19c/23ai RAC, PostgreSQL, SQL Server</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block">Cloud Ecosystems:</span>
+              <span class="text-white font-semibold">Oracle OCI, AWS Aurora/RDS, Azure SQL</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block">Migration Methodology:</span>
+              <span class="text-emerald-400 font-semibold">Zero-Trust CDC Replication (RPO = 0)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Pillars / Specializations -->
+  <section id="specializations" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs uppercase tracking-widest text-emerald-400 font-mono font-bold">Architectural Specializations</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">End-to-End Enterprise Database Disciplines</h2>
+      <p class="text-slate-400 text-sm mt-3">From multi-terabyte zero-trust cloud cutovers to Oracle 23ai AI Vector Search, automated diagnostics, and GitOps database reliability engineering.</p>
+    </div>
+
+    <div id="pillars-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Dynamically rendered from data.js -->
+    </div>
+  </section>
+
+  <!-- Interactive Migration Strategy & Architecture Advisor Widget -->
+  <section id="migration-advisor" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto">
+    <div class="glass-panel p-8 sm:p-10 rounded-3xl border-2 border-emerald-500/30 glow-emerald">
+      <div class="flex flex-col lg:flex-row gap-8 items-start justify-between border-b border-slate-800 pb-8 mb-8">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 text-xs font-mono font-medium mb-3">
+            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+            <span>Interactive Migration Architecture Engine</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Database Migration Strategy Advisor</h2>
+          <p class="text-slate-300 text-sm mt-2 max-w-2xl">
+            Configure your enterprise migration source, target cloud platform, and downtime parameters below to calculate a production-grade cutover strategy and toolchain.
+          </p>
+        </div>
+        <div class="text-right hidden lg:block">
+          <span class="text-xs font-mono text-slate-400">Zero-Trust Migration Framework</span>
+          <div class="text-emerald-400 font-mono text-xs font-semibold mt-1">Zero Data Loss Assured (RPO = 0)</div>
+        </div>
+      </div>
+
+      <!-- Controls Form -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div>
+          <label class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wide mb-2">1. Source Database</label>
+          <select id="advisor-source" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500 font-mono">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wide mb-2">2. Target Cloud DBaaS</label>
+          <select id="advisor-target" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500 font-mono">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wide mb-2">3. Production Data Volume</label>
+          <select id="advisor-scale" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500 font-mono">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono font-bold text-slate-300 uppercase tracking-wide mb-2">4. Cutover Window</label>
+          <select id="advisor-tolerance" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500 font-mono">
+            <!-- Populated dynamically -->
+          </select>
+        </div>
+      </div>
+
+      <div class="flex justify-end mb-6">
+        <button id="advisor-run-btn" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs font-mono uppercase tracking-wider flex items-center gap-2 shadow-md shadow-emerald-500/20 transition-all">
+          <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+          <span>Generate Tactical Architecture Blueprint</span>
+        </button>
+      </div>
+
+      <!-- Generated Blueprint Output Container -->
+      <div id="advisor-output">
+        <!-- Generated dynamically in app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Migration & Architecture Case Studies -->
+  <section id="case-studies" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div>
+        <span class="text-xs uppercase tracking-widest text-cyan-400 font-mono font-bold">Proven Architecture Blueprints</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Mission-Critical Enterprise Case Studies</h2>
+        <p class="text-slate-400 text-sm mt-2 max-w-xl">Architectural breakdowns of real-world heterogeneous migrations, OCI Autonomous Database modernizations, and Oracle 23ai AI Vector Search deployments.</p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="flex flex-wrap gap-2">
+        <button data-category="all" class="case-filter-btn px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs font-mono transition-all">All Studies</button>
+        <button data-category="Cloud Migration" class="case-filter-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white text-xs font-mono transition-all">Cloud Migration</button>
+        <button data-category="High Availability" class="case-filter-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white text-xs font-mono transition-all">High Availability / DR</button>
+        <button data-category="DBRE / Automation" class="case-filter-btn px-4 py-2 rounded-lg bg-slate-900 text-slate-400 hover:text-white text-xs font-mono transition-all">Oracle 23ai &amp; Automation</button>
+      </div>
+    </div>
+
+    <!-- Case Studies Cards Grid -->
+    <div id="case-studies-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Dynamically rendered from data.js -->
+    </div>
+  </section>
+
+  <!-- Publications & Thought Leadership -->
+  <section id="publications" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold mb-3">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+          <span>Author &amp; Industry Contributor</span>
+        </div>
+        <h2 class="text-3xl font-extrabold text-white">Publications &amp; Technical Articles</h2>
+        <p class="text-slate-400 text-sm mt-2 max-w-2xl">Sharing deep architectural research on Oracle 23ai, Zero-Trust database migrations, and diagnostic telemetry automation across DZone, SQLServerCentral, Medium, and arvindtoorpu.com.</p>
+      </div>
+      <div>
+        <a href="https://arvindtoorpu.com" target="_blank" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 border border-cyan-500/40 text-cyan-400 font-mono text-xs flex items-center gap-2 transition-all">
+          <span>Visit arvindtoorpu.com</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+
+    <div id="publications-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Dynamically populated from data.js -->
+    </div>
+  </section>
+
+  <!-- Technical Skills Matrix -->
+  <section id="skills" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
+      <div>
+        <span class="text-xs uppercase tracking-widest text-emerald-400 font-mono font-bold">15+ Years Technical Depth</span>
+        <h2 class="text-3xl font-extrabold text-white mt-1">Enterprise Database &amp; Cloud Competency Matrix</h2>
+      </div>
+
+      <!-- Quick Search Bar -->
+      <div class="w-full md:w-72 relative">
+        <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3 top-3"></i>
+        <input id="skills-search" type="text" placeholder="Filter skills (e.g., Oracle, OCI, 23ai, CDC)..." class="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-emerald-500 font-mono">
+      </div>
+    </div>
+
+    <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Dynamically populated from data.js -->
+    </div>
+  </section>
+
+  <!-- Career Progression Timeline -->
+  <section id="experience" class="py-16 px-4 lg:px-8 max-w-5xl mx-auto border-t border-slate-800/80">
+    <div class="text-center mb-12">
+      <span class="text-xs uppercase tracking-widest text-cyan-400 font-mono font-bold">Leadership &amp; Evolution</span>
+      <h2 class="text-3xl font-extrabold text-white mt-2">15+ Years Enterprise Career Journey</h2>
+      <p class="text-slate-400 text-sm mt-2">From core on-premise Unix DBA operations to leading Cloud Database Operations at Allspring Global Investments.</p>
+    </div>
+
+    <div id="career-timeline-container" class="space-y-6">
+      <!-- Dynamically populated from data.js -->
+    </div>
+  </section>
+
+  <!-- Education, Executive Learning & Mentorship -->
+  <section id="education" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="text-center mb-10">
+      <span class="text-xs uppercase tracking-widest text-emerald-400 font-mono font-bold">Academic Foundation &amp; Community</span>
+      <h2 class="text-3xl font-extrabold text-white mt-2">Education, Executive Programs &amp; Mentorship</h2>
+    </div>
+
+    <div id="education-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Dynamically populated from data.js -->
+    </div>
+  </section>
+
+  <!-- Certifications & Credentials -->
+  <section id="certifications" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="text-center mb-10">
+      <span class="text-xs uppercase tracking-widest text-indigo-400 font-mono font-bold">Verified Accreditations</span>
+      <h2 class="text-3xl font-extrabold text-white mt-2">Industry Certifications &amp; Accreditations</h2>
+    </div>
+
+    <div id="certifications-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <!-- Dynamically populated from data.js -->
+    </div>
+  </section>
+
+  <!-- Contact & Consultation Hub -->
+  <section id="contact" class="py-16 px-4 lg:px-8 max-w-7xl mx-auto border-t border-slate-800/80">
+    <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-slate-800">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left: Details & Direct Outreach -->
+        <div class="lg:col-span-5 flex flex-col justify-between">
+          <div>
+            <span class="text-xs uppercase tracking-widest text-emerald-400 font-mono font-bold">Initiate Discussion</span>
+            <h2 class="text-3xl font-extrabold text-white mt-2">Connect with Arvind Toorpu</h2>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              Available for technical consultations, enterprise cloud database migration advisory, speaking engagements, and architecture reviews.
+            </p>
+
+            <div class="mt-8 space-y-4 text-xs font-mono">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
+                  <i data-lucide="globe" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="text-slate-500 block">Official Website &amp; Blog:</span>
+                  <a href="https://arvindtoorpu.com" target="_blank" class="text-slate-200 hover:text-cyan-400 font-bold transition-colors">arvindtoorpu.com</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-emerald-400">
+                  <i data-lucide="mail" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="text-slate-500 block">Email:</span>
+                  <a href="mailto:arvindtoorpu.dba@gmail.com" class="profile-email text-emerald-400 hover:text-emerald-300 font-bold transition-colors flex items-center gap-1.5">
+                    <span>Email</span>
+                    <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
+                  <i data-lucide="linkedin" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="text-slate-500 block">LinkedIn Profile:</span>
+                  <a id="profile-linkedin" href="https://www.linkedin.com/in/arvind-toorpu" target="_blank" class="text-slate-200 hover:text-cyan-400 font-bold transition-colors">linkedin.com/in/arvind-toorpu</a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-amber-400">
+                  <i data-lucide="award" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="text-slate-500 block">Oracle ACE Directory:</span>
+                  <a href="https://ace.oracle.com/ords/f?p=700000:2:::::ACE_ID:2658" target="_blank" class="text-amber-300 font-bold hover:underline flex items-center gap-1.5">
+                    <span>Oracle ACE Pro (ACE ID: 2658)</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-cyan-400">
+                  <i data-lucide="cloud" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="text-slate-500 block">AWS Builder Center:</span>
+                  <a href="https://builder.aws.com/community/@arvindtoorpu?tab=articles" target="_blank" class="text-cyan-300 font-bold hover:underline flex items-center gap-1.5">
+                    <span>AWS Community Builder Articles</span>
+                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Resume Export Card -->
+          <div class="mt-8 p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between">
+            <div>
+              <div class="text-xs font-bold text-white font-mono">Executive Resume</div>
+              <div class="text-[11px] text-slate-400">Formatted for print &amp; PDF export</div>
+            </div>
+            <button class="btn-print-resume px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 transition-all">
+              <i data-lucide="printer" class="w-3.5 h-3.5"></i>
+              <span>Print / PDF</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Inquiry Form -->
+        <div class="lg:col-span-7 bg-slate-950/80 p-6 sm:p-8 rounded-2xl border border-slate-800">
+          <h3 class="text-lg font-bold text-white mb-2">Request Consultation or Architecture Discussion</h3>
+          <p class="text-xs text-slate-400 mb-6 font-mono">Direct transmission to Arvind Toorpu.</p>
+
+          <form id="contact-form" class="space-y-4">
+            <div id="contact-alert" class="hidden mb-4"></div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">Your Name *</label>
+                <input id="contact-name" type="text" required placeholder="e.g. Jane Doe" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500">
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1">Business Email *</label>
+                <input id="contact-email" type="email" required placeholder="jane.doe@enterprise.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">Topic / Scope</label>
+              <select id="contact-scope" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 font-mono">
+                <option value="Zero-Trust Cloud Database Migration (Oracle/MSSQL to AWS/OCI)">Zero-Trust Cloud Database Migration (Oracle/MSSQL to AWS/OCI)</option>
+                <option value="Oracle 23ai AI Vector Search & Architecture">Oracle 23ai AI Vector Search &amp; Architecture</option>
+                <option value="High-Availability, Disaster Recovery & Chaos Testing">High-Availability, Disaster Recovery &amp; Chaos Testing</option>
+                <option value="Performance Diagnostics Automation (AWR/ADDM)">Performance Diagnostics Automation (AWR/ADDM)</option>
+                <option value="Speaking, Conference Panel or Mentorship">Speaking, Conference Panel or Mentorship</option>
+                <option value="General Architecture Advisory">General Architecture Advisory</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1">Message &amp; Details *</label>
+              <textarea id="contact-message" rows="4" required placeholder="Briefly describe your database engines, cloud platform, data volume, and timeline..." class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-emerald-500"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs font-mono uppercase tracking-wider shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>Transmit Project Inquiry</span>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-[#050810] py-8 px-4 lg:px-8 text-center text-xs font-mono text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-slate-400">Cluster Status: All Systems Operational (SLA 99.999%)</span>
+      </div>
+      <div>
+        &copy; <span id="current-year">2026</span> <span class="hero-name">Arvind Toorpu</span>. Built for Enterprise Reliability.
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="https://arvindtoorpu.com" target="_blank" class="text-cyan-400 hover:underline">arvindtoorpu.com</a>
+        <span>•</span>
+        <a href="#overview" class="text-emerald-400 hover:underline">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Case Study Blueprint Detail Modal -->
+  <div id="case-modal" class="modal-overlay fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="modal-content glass-panel border border-slate-700 max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col">
+      <!-- Modal Header -->
+      <div class="p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/60">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+          </div>
+          <h3 id="modal-title" class="text-base sm:text-lg font-bold text-white font-sans">Architecture Blueprint</h3>
+        </div>
+        <button onclick="closeCaseStudyModal()" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Scrollable) -->
+      <div id="modal-body" class="p-6 overflow-y-auto space-y-6">
+        <!-- Content injected dynamically -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 border-t border-slate-800 bg-slate-900/60 flex justify-end">
+        <button onclick="closeCaseStudyModal()" class="px-5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 hover:text-white transition-colors">
+          Close Blueprint
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive DBA Terminal CLI Modal -->
+  <div id="dba-terminal-modal" class="modal-overlay fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="modal-content terminal-window max-w-3xl w-full rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[520px]">
+      <!-- Terminal Titlebar -->
+      <div class="p-3.5 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="flex items-center gap-1.5">
+            <span class="w-3 h-3 rounded-full bg-rose-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
+          </div>
+          <span class="text-xs font-mono text-slate-400 ml-2 font-bold">arvind@cluster-01: /enterprise/telemetry</span>
+        </div>
+        <button id="close-terminal-btn" class="w-6 h-6 rounded bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center text-xs">
+          ✕
+        </button>
+      </div>
+
+      <!-- Terminal Quick Commands Bar -->
+      <div class="px-4 py-2 bg-slate-900/80 border-b border-slate-800/80 flex flex-wrap gap-2 text-[11px] font-mono">
+        <span class="text-slate-500 self-center">Commands:</span>
+        <button onclick="runQuickCommand('whoami')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700">whoami</button>
+        <button onclick="runQuickCommand('awards')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700">awards</button>
+        <button onclick="runQuickCommand('metrics')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400 border border-slate-700">metrics</button>
+        <button onclick="runQuickCommand('publications')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-300 border border-slate-700">publications</button>
+        <button onclick="runQuickCommand('skills')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-indigo-400 border border-slate-700">skills</button>
+        <button onclick="runQuickCommand('migrate --oracle-to-aurora')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400 border border-slate-700">simulate migration</button>
+        <button onclick="runQuickCommand('uptime')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700">uptime</button>
+        <button onclick="runQuickCommand('clear')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-500 border border-slate-700">clear</button>
+      </div>
+
+      <!-- Terminal Scrollable Output Area -->
+      <div id="terminal-output" class="p-4 flex-1 overflow-y-auto text-xs font-mono text-slate-200 space-y-1">
+        <!-- Lines dynamically injected in app.js -->
+      </div>
+
+      <!-- Terminal Input Line -->
+      <div class="p-3 bg-slate-950 border-t border-slate-800/80 flex items-center gap-2">
+        <span class="text-emerald-400 font-mono font-bold text-xs">arvind@cluster-01:~$</span>
+        <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" placeholder="type 'help', 'awards', 'whoami' or any command..." class="flex-1 bg-transparent border-none text-xs font-mono text-white focus:outline-none placeholder-slate-600">
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
